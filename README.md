@@ -20,6 +20,8 @@ get("/hello", (req, res) -> "hello world!");
 - Al recibir una solicitud, el servidor busca en el mapa si existe una función asociada a la ruta.
 - Si la ruta existe, se ejecuta la función lambda y se devuelve la respuesta.
 
+
+![alt text](image.png)
 ---
 
 ###  Extracción de Parámetros de Consulta
@@ -27,7 +29,7 @@ Se ha desarrollado un mecanismo para extraer parámetros de consulta de las soli
 
 ####  Uso Ejemplo:
 ```java
-get("/hello", (req, res) -> "hello " + req.getQueryParam("name"));
+get("/app/hello", (req, res) -> "hello " + req.getQueryParam("name"));
 ```
 
 ####  Implementación
@@ -45,6 +47,8 @@ Se ha añadido la función `staticfiles()` que permite definir la carpeta donde 
 staticfiles("src/main/static");
 ```
 
+![alt text](image.png)
+
 ####  Implementación
 - Se almacena la ruta base de los archivos estáticos.
 - Al recibir una solicitud que no coincide con una ruta REST, el servidor busca el archivo en la carpeta configurada.
@@ -56,29 +60,18 @@ staticfiles("src/main/static");
 ##  ¿Cómo Probar el Framework?
 
 
-###  Agregar un Archivo de Prueba
-```html
-<!-- Archivo: webroot/public/index.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Prueba de Servidor</title>
-</head>
-<body>
-    <h1>¡Servidor HTTP en Java Funcionando!</h1>
-</body>
-</html>
-```
-
-###  Compilar y Ejecutar el Servidor
+###  Compilar y Ejecutar pruebas
 ```sh
-javac -d out -sourcepath src src/org/example/*.java
-java -cp out org.example.HttpServer
+mvn package
 ```
+![alt text](image2.png)
 
 ###  Acceder en el Navegador
--  Página estática: `http://localhost:35000/index.html`
--  Prueba de query params: `http://localhost:35000/hello?name=Juan`
+-  Página estática: `http://localhost:35000/indexlab2.html`
+-  Prueba de query params: `http://localhost:35000/app/hello?name=Juan`
+-  Prueba de PI:`http://localhost:35000/app/pi`
+
+Sin embargo, tambien esta preparado para responder a un nombre personalizado haciendo uso un javascript.
 
 ---
 

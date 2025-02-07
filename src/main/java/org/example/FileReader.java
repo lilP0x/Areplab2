@@ -17,13 +17,24 @@ public class FileReader {
     private static final Map<String, BiConsumer<Request, Response>> postRoutes = new HashMap<>();
 
     public FileReader() {
-        getRoutes.put("/hello", (req, res) -> {
+        routes();
+    }
+
+
+    public static void routes(){
+        getRoutes.put("/app/hello", (req, res) -> {
             String name = req.getQueryParam("name");
             if (name == null) {
                 name = "World";
             }
             res.send("Hello, " + name + "!");
         });
+
+        getRoutes.put("/app/pi", (req, res) -> {
+            res.send(String.valueOf(Math.PI));
+        });
+
+
     }
 
     public static void staticfiles(String path) {
