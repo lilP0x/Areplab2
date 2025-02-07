@@ -10,6 +10,9 @@ public class HttpServer {
         try {
             serverSocket = new ServerSocket(35000);
             fileReader = new FileReader();
+
+            FileReader.staticfiles("src/main/resources");
+
             
         } catch (IOException e) {
             System.err.println("No pude escuchar en el puerto: 35000.");

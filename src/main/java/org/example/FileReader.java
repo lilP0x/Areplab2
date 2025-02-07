@@ -3,18 +3,20 @@ package org.example;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
 public class FileReader {
+    private static String staticFolder = "src/main/resources"; // Valor por defecto
 
     private static final Map<String, BiConsumer<Request, Response>> getRoutes = new HashMap<>();
     private static final Map<String, BiConsumer<Request, Response>> postRoutes = new HashMap<>();
 
     public FileReader() {
-        // Ruta GET con soporte para Query Params
         getRoutes.put("/hello", (req, res) -> {
             String name = req.getQueryParam("name");
             if (name == null) {
@@ -22,7 +24,10 @@ public class FileReader {
             }
             res.send("Hello, " + name + "!");
         });
+    }
 
+    public static void staticfiles(String path) {
+        staticFolder = path;
     }
 
     public void handleRequest(ServerSocket socket, Socket clientSocket) throws Exception {
@@ -48,7 +53,6 @@ public class FileReader {
                 }
             }
 
-            // Leer el cuerpo de la solicitud POST
             if (isPost && inputLine.isEmpty()) {
                 while (in.ready()) {
                     requestBody.append((char) in.read());
@@ -65,7 +69,6 @@ public class FileReader {
         Request request = new Request(method, fullPath, requestBody.toString());
         Response response = new Response(out);
 
-        // Manejo de rutas dinámicas
         String path = request.getPath();
         if (method.equals("GET") && getRoutes.containsKey(path)) {
             getRoutes.get(path).accept(request, response);
@@ -81,15 +84,15 @@ public class FileReader {
     }
 
     private static void serveFile(String filePath, OutputStream output) throws IOException {
+        Path file = Paths.get(staticFolder, filePath);
         boolean isError = false;
-        InputStream fileStream = FileReader.class.getClassLoader().getResourceAsStream(filePath);
 
-        if (fileStream == null) {
-            fileStream = FileReader.class.getClassLoader().getResourceAsStream("400badrequest.html");
+        if (!Files.exists(file) || Files.isDirectory(file)) {
+            file = Paths.get(staticFolder, "400badrequest.html");
             isError = true;
         }
 
-        byte[] fileBytes = fileStream.readAllBytes();
+        byte[] fileBytes = Files.readAllBytes(file);
         String contentType = getContentType(filePath);
 
         PrintWriter writer = new PrintWriter(output, true);
