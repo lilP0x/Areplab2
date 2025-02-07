@@ -78,4 +78,12 @@ Sin embargo, tambien esta preparado para responder a un nombre personalizado hac
 ##  Conclusión
 Este proyecto permite el desarrollo de aplicaciones web con servicios REST y manejo de archivos estáticos de manera flexible. Con la implementación del método `get()`, la extracción de parámetros y la configuración de archivos estáticos, se ha creado una base para construir aplicaciones web sobre este servidor en Java.
 
+## Built With
 
+[Maven](https://maven.apache.org/index.html) - Dependency Management
+
+[Git](https://git-scm.com) - Version Control System
+
+## Authors
+
+Juan Pablo Fernandez Gonzalez
