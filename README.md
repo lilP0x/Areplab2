@@ -55,10 +55,6 @@ staticfiles("src/main/static");
 
 ##  ¿Cómo Probar el Framework?
 
-###  Crear la Carpeta de Archivos Estáticos
-```sh
-mkdir -p webroot/public
-```
 
 ###  Agregar un Archivo de Prueba
 ```html
