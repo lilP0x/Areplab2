@@ -65,7 +65,7 @@ staticfiles("src/main/static");
     <title>Prueba de Servidor</title>
 </head>
 <body>
-    <h1>¡Servidor HTTP en Java Funcionando! 🎉</h1>
+    <h1>¡Servidor HTTP en Java Funcionando!</h1>
 </body>
 </html>
 ```
