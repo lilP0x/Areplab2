@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 
 public class FileReader {
-    private static String staticFolder = "src/main/resources"; // Valor por defecto
+    private static String staticFolder = "src/main/resources";  
 
     private static final Map<String, BiConsumer<Request, Response>> getRoutes = new HashMap<>();
     private static final Map<String, BiConsumer<Request, Response>> postRoutes = new HashMap<>();
