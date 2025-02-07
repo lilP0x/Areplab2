@@ -5,6 +5,45 @@ Este proyecto tiene como objetivo mejorar un servidor web existente para convert
 
 ---
 
+1. # Requisitos Previos  
+
+Debes tener instalado lo siguiente:  
+
+## 1. Java (versiones 17 o 21)  
+Para verificar la versión en una consola o terminal, ejecuta:  
+
+```sh
+java -version
+   ```sh
+   java version "17.0.12" 2024-07-16 LTS
+   Java(TM) SE Runtime Environment (build 17.0.12+8-LTS-286)
+   Java HotSpot(TM) 64-Bit Server VM (build 17.0.12+8-LTS-286, mixed mode, sharing)
+   ```
+
+2. **Maven**
+
+   ```sh
+   mvn -v
+   ```
+    Deberias ver algo asi:
+
+   ```sh
+    Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)  
+    Maven home: /Applications/apache-maven-3.9.9  
+    Java version: 17.0.12, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home  
+    Default locale: es_CO, platform encoding: UTF-8  
+    OS name: "mac os x", version: "12.7.6", arch: "x86_64", family: "mac"  
+
+   ```
+
+3. **Git**
+
+Clona el repositorio y navega hasta la carpeta que contiene el archivo pom.xml con los siguientes comandos:
+
+   ```sh
+   git clone https://github.com/lilP0x/Areplab2
+   ```
+
 ##  Características Implementadas
 
 ###  Método `get()` para definir servicios REST
