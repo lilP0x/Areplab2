@@ -60,7 +60,7 @@ get("/hello", (req, res) -> "hello world!");
 - Si la ruta existe, se ejecuta la función lambda y se devuelve la respuesta.
 
 
-![alt text](image.png)
+![alt text](/src/main/resources/readmeImages/impl.png)
 ---
 
 ###  Extracción de Parámetros de Consulta
@@ -86,7 +86,7 @@ Se ha añadido la función `staticfiles()` que permite definir la carpeta donde 
 staticfiles("src/main/static");
 ```
 
-![alt text](image.png)
+![alt text](/src/main/resources/readmeImages/image.png)
 
 ####  Implementación
 - Se almacena la ruta base de los archivos estáticos.
@@ -103,7 +103,7 @@ staticfiles("src/main/static");
 ```sh
 mvn package
 ```
-![alt text](image2.png)
+![alt text](/src/main/resources/readmeImages/image2.png)
 
 ###  Acceder en el Navegador
 -  Página estática: `http://localhost:35000/indexlab2.html`
